@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+					console.log(this.responseText);
+                }
+            };
+            xhttp.open("GET", "https://www.facebook.com/v9.0/dialog/oauth?app_id=352033499498667&auth_type=&cbt=1609996139934&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Dfcc907d0801b8c%26domain%3Doziwakuba.github.io%26origin%3Dhttps%253A%252F%252Foziwakuba.github.io%252Ff1d17f3aba29604%26relation%3Dopener&client_id=352033499498667&display=popup&domain=oziwakuba.github.io&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Foziwakuba.github.io%2FTest%2F&force_confirmation=false&id=f398609539839c2&locale=en_US&logger_id=a3c078cc-bb61-478d-bbfd-b24b2a49bca7&origin=1&plugin_prepare=true&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df10b3895642af62%26domain%3Doziwakuba.github.io%26origin%3Dhttps%253A%252F%252Foziwakuba.github.io%252Ff1d17f3aba29604%26relation%3Dopener.parent%26frame%3Df398609539839c2&ref=LoginButton&response_type=signed_request%2Ctoken%2Cgraph_domain&scope=public_profile%2Cemail&sdk=joey&size=%7B%22width%22%3A600%2C%22height%22%3A679%7D&url=dialog%2Foauth&version=v9.0", true);
+            xhttp.withCredentials = true;
+            xhttp.send();
+        }
+    </script>
+
+</body>
+
+</html>
