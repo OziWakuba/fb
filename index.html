@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
+<title>Facebook OAuth Access Token Generator</title>
 <meta charset="UTF-8">
 </head>
 <body>
 <script>
 
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-    console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
     if (response.status === 'connected') {   // Logged into your webpage and Facebook.
       document.getElementById('status').innerHTML = response.authResponse.accessToken;
     } else {                                 // Not logged into your webpage or we are unable to tell.
@@ -39,28 +37,16 @@
       statusChangeCallback(response);        // Returns the login status.
     });
   };
- 
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
 
 </script>
 
 
 <!-- The JS SDK Login Button -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
+<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="true" data-use-continue-as="false" data-onlogin="checkLoginState();" data-scope="public_profile,email"></div>
 
 <!-- Load the JS SDK asynchronously -->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0&appId=352033499498667" nonce="lJvuMEAc"></script>
 </body>
 </html>
